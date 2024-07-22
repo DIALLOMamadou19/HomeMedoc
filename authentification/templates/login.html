@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contentLogin %}
+<div class="h-screen w-full bg-red-100">
+  <div class="container mx-auto py-16 px-32 bg-blue-100">
+    <div class="flex flex-row-reverse mx-12 my-5 text-3xl text-blue-800">
+      <p class="mx-2 mt-2">HomeMedoc</p>
+      <img src="{% static 'images/logo1.png' %}" alt="logo" class="h-12" />
+    </div>
+    <div class="flex flex-row ">
+      <div>
+        <img src="{% static 'images/imagebg.png' %}" alt="images" class="border rounded-md "/>
+      </div>
+      <div class="mx-2 bg-white border rounded shadow-inner my-6">
+        <div class="text-4xl text-blue-400 text-center my-5">
+          <p>Connexion</p>
+        </div>
+        <div class="mx-5 flex flex-col">
+          <form method="post">
+            {{ form.as_p }} {% csrf_token %}
+            <div class="flex items-center bg-blue-100 my-5">
+              <input type="checkbox" class="mx-2">
+              <p>Se souvenir de moi</p>
+            </div>
+            <div
+              class="rounded-full bg-blue-500 text-center text-white my-5 mx-8 py-1"
+            >
+              <button type="submit">Se connecter</button>
+            </div>
+          </form>
+        </div>
+        <div class="text-center text-amber-500 my-3">
+          <a href="">Mot de passe oublié ?</a>
+        </div>
+        <div class="text-center">
+          <p>
+            Pas encore de compte ?
+            <a href="{% url 'register' %}" class="text-amber-500">S'inscrire</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+

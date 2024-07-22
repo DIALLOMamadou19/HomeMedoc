@@ -18,7 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include, path
 
+import authentification.views as av
+import patient.views as pv
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("__reload__/", include("django_browser_reload.urls")),
+    path('', av.login_page, name='login'),
+    path('register/', av.register_page, name='register'),
+    path('logout/', av.logout_user, name='logout'),
+    path('home/', pv.home, name='home'),
 ]
